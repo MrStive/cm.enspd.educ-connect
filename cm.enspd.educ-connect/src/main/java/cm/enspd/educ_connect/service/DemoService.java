@@ -6,13 +6,12 @@ import cm.enspd.educ_connect.domaine.demo.DemoFetcher;
 import cm.enspd.educ_connect.domaine.demo.DemoId;
 import cm.enspd.educ_connect.dto.DemoDTO;
 import cm.enspd.educ_connect.service.mapper.DemoMapper;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -24,12 +23,12 @@ public class DemoService {
   @Transactional
   public UUID createDemo(DemoDTO data) {
     return Optional.ofNullable(data)
-            .map(demoMapper::map)
-            .map(demoFactory::create)
-            .map(Demo::getId)
-            .map(DemoId::getValue)
-            .map(UUID::fromString)
-            .orElseThrow();
+        .map(demoMapper::map)
+        .map(demoFactory::create)
+        .map(Demo::getId)
+        .map(DemoId::getValue)
+        .map(UUID::fromString)
+        .orElseThrow();
   }
 
   @Transactional(readOnly = true)

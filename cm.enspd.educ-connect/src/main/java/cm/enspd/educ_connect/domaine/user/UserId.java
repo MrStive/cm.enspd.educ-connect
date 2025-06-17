@@ -1,4 +1,4 @@
-package cm.enspd.educ_connect.domaine.demo;
+package cm.enspd.educ_connect.domaine.user;
 
 import jakarta.persistence.Embeddable;
 import java.io.Serializable;
@@ -8,19 +8,23 @@ import lombok.Getter;
 
 @Getter
 @Embeddable
-public class DemoId implements Serializable {
+public class UserId implements Serializable {
   private String value;
 
-  public DemoId() {
+  public UserId() {
     this.value = UUID.randomUUID().toString();
   }
 
-  public DemoId(String value) {
+  public UserId(String value) {
     this.value = value;
   }
 
-  public DemoId(UUID value) {
+  public UserId(UUID value) {
     this.value = value.toString();
+  }
+
+  public UUID toUUID() {
+    return UUID.fromString(value);
   }
 
   @Override
@@ -28,7 +32,7 @@ public class DemoId implements Serializable {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof DemoId that)) {
+    if (!(o instanceof UserId that)) {
       return false;
     }
     return Objects.equals(value, that.value);

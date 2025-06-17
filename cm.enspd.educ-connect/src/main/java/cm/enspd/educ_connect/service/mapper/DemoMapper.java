@@ -4,12 +4,11 @@ import cm.enspd.educ_connect.domaine.demo.Demo;
 import cm.enspd.educ_connect.domaine.demo.DemoData;
 import cm.enspd.educ_connect.domaine.demo.DemoName;
 import cm.enspd.educ_connect.dto.DemoDTO;
+import java.util.Optional;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-
-import java.util.Optional;
 
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface DemoMapper {

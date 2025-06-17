@@ -3,10 +3,9 @@ package cm.enspd.educ_connect.domaine;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
+import java.io.Serializable;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
-
-import java.io.Serializable;
 
 @NoArgsConstructor
 @SuperBuilder

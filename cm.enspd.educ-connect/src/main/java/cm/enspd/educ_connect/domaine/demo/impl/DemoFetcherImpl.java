@@ -3,9 +3,8 @@ package cm.enspd.educ_connect.domaine.demo.impl;
 import cm.enspd.educ_connect.domaine.demo.Demo;
 import cm.enspd.educ_connect.domaine.demo.DemoFetcher;
 import cm.enspd.educ_connect.domaine.demo.DemoRepository;
-import lombok.RequiredArgsConstructor;
-
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class DemoFetcherImpl implements DemoFetcher {
