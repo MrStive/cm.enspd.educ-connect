@@ -5,8 +5,13 @@ import cm.enspd.educ_connect.domaine.demo.DemoFetcher;
 import cm.enspd.educ_connect.domaine.demo.DemoRepository;
 import cm.enspd.educ_connect.domaine.demo.impl.DemoFactoryImpl;
 import cm.enspd.educ_connect.domaine.demo.impl.DemoFetcherImpl;
+import cm.enspd.educ_connect.domaine.user.UserFactory;
+import cm.enspd.educ_connect.domaine.user.UserFactoryImpl;
+import cm.enspd.educ_connect.domaine.user.UserRepository;
 import cm.enspd.educ_connect.repository.DemoSpringRepository;
+import cm.enspd.educ_connect.repository.UserSpringRepository;
 import cm.enspd.educ_connect.repository.impl.DemoRepositoryImpl;
+import cm.enspd.educ_connect.repository.impl.UserRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,18 +20,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class EducConnectBeans {
 
-    @Bean
-    public DemoFactory demoFactory(DemoRepository demoRepository) {
-        return new DemoFactoryImpl(demoRepository);
-    }
+  @Bean
+  public DemoFactory demoFactory(DemoRepository demoRepository) {
+    return new DemoFactoryImpl(demoRepository);
+  }
 
-    @Bean
-    public DemoRepository demoRepository(DemoSpringRepository demoSpringRepository) {
-        return new DemoRepositoryImpl(demoSpringRepository);
-    }
+  @Bean
+  UserRepository userRepository(UserSpringRepository userSpringRepository) {
+    return new UserRepositoryImpl(userSpringRepository);
+  }
 
-    @Bean
-    public DemoFetcher demoFetcher(DemoRepository demoRepository) {
-        return new DemoFetcherImpl(demoRepository);
-    }
+  @Bean
+  public UserFactory userFactory(UserRepository userRepository) {
+    return new UserFactoryImpl(userRepository);
+  }
+
+  @Bean
+  public DemoRepository demoRepository(DemoSpringRepository demoSpringRepository) {
+    return new DemoRepositoryImpl(demoSpringRepository);
+  }
+
+  @Bean
+  public DemoFetcher demoFetcher(DemoRepository demoRepository) {
+    return new DemoFetcherImpl(demoRepository);
+  }
 }

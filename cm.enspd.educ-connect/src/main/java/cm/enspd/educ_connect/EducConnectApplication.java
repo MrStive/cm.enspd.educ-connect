@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class EducConnectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(EducConnectApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(EducConnectApplication.class, args);
+  }
 }

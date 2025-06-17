@@ -1,11 +1,9 @@
 package cm.enspd.educ_connect.domaine;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 import lombok.Getter;
 import org.eclipse.persistence.annotations.AdditionalCriteria;
-
-import java.io.Serializable;
-
 
 @Getter
 @AdditionalCriteria("this.deleted = false")
@@ -39,7 +37,7 @@ public abstract class EntityAdapter<T extends Serializable> extends BaseEntity<T
           T extends Serializable,
           C extends EntityAdapter<T>,
           B extends EntityAdapterBuilder<T, C, B>>
-          extends BaseEntity.BaseEntityBuilder<T, C, B> {
+      extends BaseEntity.BaseEntityBuilder<T, C, B> {
     private long version;
     private boolean deleted;
 
@@ -62,12 +60,12 @@ public abstract class EntityAdapter<T extends Serializable> extends BaseEntity<T
     public String toString() {
       String var10000 = super.toString();
       return "EntityAdapter.EntityAdapterBuilder(super="
-              + var10000
-              + ", version="
-              + this.version
-              + ", deleted="
-              + this.deleted
-              + ")";
+          + var10000
+          + ", version="
+          + this.version
+          + ", deleted="
+          + this.deleted
+          + ")";
     }
   }
 }

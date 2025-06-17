@@ -11,7 +11,6 @@ plugins {
 	id 'org.asciidoctor.jvm.convert' version '3.3.2'
 	id "org.openapi.generator" version "7.1.0"
 	id 'com.diffplug.spotless' version '6.25.0'
-
 }
 ext {
 	set('mapstructVersion', "1.5.5.Final")
@@ -62,7 +61,7 @@ dependencies {
 	implementation('org.openapitools:jackson-databind-nullable:0.2.6')
 	implementation('org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0')
 	// H2 database for both testing and development
-//	 testing
+	//	 testing
 	implementation 'com.h2database:h2'
 	testImplementation 'io.rest-assured:rest-assured:5.3.2'
 	testImplementation 'io.rest-assured:spring-mock-mvc:5.4.0'
@@ -75,16 +74,16 @@ openApiGenerate {
 	apiPackage = "cm.enspd.educ-connect.api"
 	modelPackage = "cm.enspd.educ-connect.dto"
 	configOptions = [
-			dateLibrary         : "java8-localdatetime",
-			library             : "spring-boot",
-			interfaceOnly       : "true",
-			useTags             : "true",
-			skipDefaultInterface: "true",
-			useSpringBoot3      : "true",
-			openApiNullable     : "false"
+		dateLibrary         : "java8-localdatetime",
+		library             : "spring-boot",
+		interfaceOnly       : "true",
+		useTags             : "true",
+		skipDefaultInterface: "true",
+		useSpringBoot3      : "true",
+		openApiNullable     : "false"
 	]
 	typeMappings = [
-			time: "java.time.LocalTime",
+		time: "java.time.LocalTime",
 	]
 }
 
@@ -92,7 +91,7 @@ sourceSets.main.java.srcDir layout.buildDirectory.file("generated/sources/openap
 
 compileJava.dependsOn(
 		tasks.openApiGenerate
-)
+		)
 
 tasks.named('test') {
 	useJUnitPlatform()
