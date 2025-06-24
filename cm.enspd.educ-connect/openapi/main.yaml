@@ -98,8 +98,8 @@ components:
       required:
       - "password"
       - "email"
-      - "dateOfBirth"
-      - "leven"
+      - "birthdate"
+      - "level"
       - "contact"
       - "training"
       properties:
@@ -120,7 +120,7 @@ components:
           $ref: "#/components/schemas/ContactDTO"
         training:
           $ref: "#/components/schemas/AcademicTrainingDTO"
-        leven:
+        level:
           type: "integer"
           format: "int64"
           maximum: 7

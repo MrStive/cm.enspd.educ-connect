@@ -13,4 +13,4 @@ public record UserData(
     Contact contact,
     Training training,
     LocalDate birthdate,
-    int leven) {}
+    int level) {}

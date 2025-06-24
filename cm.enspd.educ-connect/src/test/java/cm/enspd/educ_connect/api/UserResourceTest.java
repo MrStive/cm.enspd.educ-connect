@@ -31,7 +31,7 @@ class UserResourceTest {
             .birthdate(LocalDate.now().withDayOfYear(5))
             .email("educ.connect@gmail.com")
             .password("1234")
-            .leven(4L);
+            .level(4L);
     when(userService.createStudent(any(UserDTO.class))).thenReturn(expectedId);
     // When
     // spotless:off

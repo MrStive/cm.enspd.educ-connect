@@ -12,7 +12,7 @@ public class UserFactoryImpl implements UserFactory {
         .saveStudent(
             User.builder()
                 .contact(userData.contact())
-                .leven(userData.leven())
+                .level(userData.level())
                 .firstName(userData.firstName())
                 .lastName(userData.lastName())
                 .training(userData.training())
