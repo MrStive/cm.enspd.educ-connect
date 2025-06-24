@@ -18,7 +18,7 @@ public interface UserMapper {
   @BeanMapping(ignoreByDefault = true)
   @Mapping(target = "birthdate")
   @Mapping(target = "email")
-  @Mapping(target = "leven")
+  @Mapping(target = "level")
   @Mapping(target = "firstName", source = "firstname")
   @Mapping(target = "lastName", source = "firstname")
   @Mapping(target = "training")

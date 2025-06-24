@@ -34,8 +34,8 @@ public class User {
   @Column(name = "c_last_name")
   private String lastName;
 
-  @Column(name = "c_leven")
-  private int leven;
+  @Column(name = "c_level")
+  private int level;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "c_training")
