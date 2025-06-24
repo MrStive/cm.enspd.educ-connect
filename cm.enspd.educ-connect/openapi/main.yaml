@@ -79,10 +79,36 @@ paths:
               schema:
                 type: "string"
                 format: "uuid"
-        "400":
-          description: "Invalid input"
+        "403":
+          description: "student already exist"
+  /user/{id}:
+    get:
+      tags:
+      - "User"
+      summary: "get student by id"
+      description: "get student by id"
+      operationId: "getStudentById"
+      security:
+        - oAuth:
+            - "student:read"
+      parameters:
+        - name: id
+          required: true
+          in: path
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: " successfully operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
         "401":
           description: "Unauthorized"
+        "404":
+          description: "student not found"
 components:
   schemas:
     DemoDTO:
@@ -103,6 +129,9 @@ components:
       - "contact"
       - "training"
       properties:
+        id:
+          type: string
+          format: uuid
         password:
           type: "string"
         firstname:

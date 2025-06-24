@@ -18,6 +18,6 @@ public class UserFactoryImpl implements UserFactory {
                 .training(userData.training())
                 .birthDate(userData.birthdate())
                 .build())
-        .getUserId();
+        .getId();
   }
 }

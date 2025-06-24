@@ -2,6 +2,7 @@ package cm.enspd.educ_connect.service.mapper;
 
 import cm.enspd.educ_connect.domaine.user.Contact;
 import cm.enspd.educ_connect.domaine.user.PhoneNumber;
+import cm.enspd.educ_connect.domaine.user.User;
 import cm.enspd.educ_connect.domaine.user.UserData;
 import cm.enspd.educ_connect.dto.ContactDTO;
 import cm.enspd.educ_connect.dto.PhoneNumberDTO;
@@ -20,7 +21,7 @@ public interface UserMapper {
   @Mapping(target = "email")
   @Mapping(target = "level")
   @Mapping(target = "firstName", source = "firstname")
-  @Mapping(target = "lastName", source = "firstname")
+  @Mapping(target = "lastName", source = "lastname")
   @Mapping(target = "training")
   @Mapping(target = "password")
   @Mapping(target = "username")
@@ -44,4 +45,19 @@ public interface UserMapper {
             })
         .orElse(null);
   }
+  @BeanMapping(ignoreByDefault = true)
+  @Mapping(target = "id", source = "id.value")
+  @Mapping(target = "email")
+  @Mapping(target = "firstname", source = "firstName")
+  @Mapping(target = "firstname", source = "firstName")
+  @Mapping(target = "lastname", source = "lastName")
+  UserDTO mapToUserDTO(User user);
+
+  default PhoneNumberDTO mapToPhoneNumber(PhoneNumber value) {
+    return Optional.ofNullable(value)
+            .map(
+                    phone -> new PhoneNumberDTO().number(phone.getNumber()).countryCode(phone.getCountryCode()))
+            .orElse(null);
+  }
+
 }

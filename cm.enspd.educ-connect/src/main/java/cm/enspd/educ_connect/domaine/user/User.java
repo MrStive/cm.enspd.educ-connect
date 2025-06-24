@@ -1,32 +1,35 @@
 package cm.enspd.educ_connect.domaine.user;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import cm.enspd.educ_connect.domaine.EducConnectEntityBase;
+import cm.enspd.educ_connect.domaine.demo.DemoId;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldNameConstants;
+import lombok.experimental.SuperBuilder;
 
-@Entity(name = "t_user")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
+@Entity
+@FieldNameConstants
 @Setter
-public class User {
-  @EmbeddedId
-  @Column(name = "c_id")
+@Getter
+@NoArgsConstructor
+@SuperBuilder
+@Table(name = "t_user")
+public class User extends EducConnectEntityBase<UserId> {
   @Builder.Default
-  private UserId userId = new UserId();
+  @EmbeddedId
+  @AttributeOverride(name = "value", column = @Column(name = "c_id"))
+  private UserId id = new UserId();
 
   @Column(name = "c_username")
   private String username;
+   @Column(name = "c_email")
+  private String email;
 
   @Column(name = "c_first_name")
   private String firstName;
