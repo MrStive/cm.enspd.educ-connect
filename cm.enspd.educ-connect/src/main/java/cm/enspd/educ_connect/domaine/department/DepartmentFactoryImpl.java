@@ -3,7 +3,7 @@ package cm.enspd.educ_connect.domaine.department;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
+
 @RequiredArgsConstructor
 public class DepartmentFactoryImpl implements DepartmentFactory {
 

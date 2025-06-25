@@ -4,9 +4,9 @@ import lombok.Builder;
 
 @Builder
 public record ProgramData(
-    String id,           // UUID sous forme de chaîne
-    String name,         // Nom du programme
-    String description,  // Description textuelle
-    String departmentId, // Id du département associé
-    String levelId       // Id du niveau (grade level) associé
+    String id,           
+    String name,         
+    String description,  
+    String departmentId, 
+    String levelId       
 ) {}

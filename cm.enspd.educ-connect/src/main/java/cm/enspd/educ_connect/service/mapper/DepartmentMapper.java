@@ -10,7 +10,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface DepartmentMapper {
     @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id")
     @Mapping(target = "name")
     @Mapping(target = "description")
     DepartmentData mapToDepartmentData(DepartmentDTO departmentDTO);

@@ -10,7 +10,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface LevelMapper {
     @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id")
     @Mapping(target = "name")
     @Mapping(target = "trainingType")
     LevelData mapToLevelData(LevelDTO levelDTO);

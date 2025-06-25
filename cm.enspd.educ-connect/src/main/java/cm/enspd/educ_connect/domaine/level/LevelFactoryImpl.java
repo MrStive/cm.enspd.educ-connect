@@ -3,7 +3,6 @@ package cm.enspd.educ_connect.domaine.level;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
 public class LevelFactoryImpl implements LevelFactory {
 

@@ -206,9 +206,9 @@ components:
           $ref: "#/components/schemas/ContactDTO"
         training:
           $ref: "#/components/schemas/AcademicTrainingDTO"
-        level:
-          type: "integer"
-          format: "int64"
+        leven:
+          type: "string"
+          format: "uuid"
           maximum: 7
           minimum: 1
           maxLength: 1
@@ -244,8 +244,8 @@ components:
         - name
       properties:
         id:
-          type: integer
-          format: int64
+          type: string
+          format: uuid
         name:
           type: string
         description:
@@ -257,17 +257,17 @@ components:
         - name
       properties:
         id:
-          type: integer
+          type: string
           format: uuid
         name:
           type: string
         description:
           type: string
         departmentId:
-          type: integer
+          type: string
           format: uuid
         levelId:
-          type: integer
+          type: string
           format: uuid
 
     LevelDTO:
@@ -277,7 +277,7 @@ components:
         - trainingType
       properties:
         id:
-          type: integer
+          type: string
           format: uuid
         name:
           type: string

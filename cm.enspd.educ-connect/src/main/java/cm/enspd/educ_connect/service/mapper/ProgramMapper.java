@@ -10,7 +10,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ProgramMapper {
     @BeanMapping(ignoreByDefault = true)
-    @Mapping(target = "id")
     @Mapping(target = "name")
     @Mapping(target = "description")
     @Mapping(target = "departmentId")
