@@ -1,4 +1,4 @@
-package cm.enspd.educ_connect.domaine.program;
+package cm.enspd.educ_connect.domaine.department.program;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;

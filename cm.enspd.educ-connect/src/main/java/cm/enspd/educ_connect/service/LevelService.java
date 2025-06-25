@@ -1,6 +1,6 @@
 package cm.enspd.educ_connect.service;
 
-import cm.enspd.educ_connect.domaine.LevelFactory;
+import cm.enspd.educ_connect.domaine.level.LevelFactory;
 import cm.enspd.educ_connect.dto.LevelDTO;
 import cm.enspd.educ_connect.service.mapper.LevelMapper;
 import java.util.UUID;

@@ -1,4 +1,4 @@
-package cm.enspd.educ_connect.domaine.program;
+package cm.enspd.educ_connect.domaine.department.program;
 
 import jakarta.persistence.Embeddable;
 import lombok.Getter;
@@ -34,5 +34,9 @@ public class ProgramId implements Serializable {
   @Override
   public int hashCode() {
     return Objects.hash(value);
+  }
+
+  public UUID toUUID() {
+    return UUID.fromString(this.value);
   }
 }

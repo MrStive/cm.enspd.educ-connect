@@ -1,7 +1,7 @@
 package cm.enspd.educ_connect.domaine.level;
 
 import cm.enspd.educ_connect.domaine.EducConnectEntityBase;
-import cm.enspd.educ_connect.domaine.program.Program;
+import cm.enspd.educ_connect.domaine.department.program.Program;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,9 +28,6 @@ public class Level extends EducConnectEntityBase<LevelId> {
   @Embedded
   @AttributeOverride(name = "value", column = @Column(name = "c_name"))
   private LevelName name;
-
-  @Column(name = "c_training_type")
-  private String trainingType;
 
   @OneToMany(mappedBy = "level", cascade = CascadeType.ALL)
   private List<Program> programs;

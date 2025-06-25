@@ -1,7 +1,6 @@
-package cm.enspd.educ_connect.domaine.program;
+package cm.enspd.educ_connect.domaine.department.program;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 public class ProgramFactoryImpl implements ProgramFactory {

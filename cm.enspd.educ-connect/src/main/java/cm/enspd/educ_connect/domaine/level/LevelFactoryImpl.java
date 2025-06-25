@@ -1,7 +1,6 @@
 package cm.enspd.educ_connect.domaine.level;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
 public class LevelFactoryImpl implements LevelFactory {
@@ -12,9 +11,8 @@ public class LevelFactoryImpl implements LevelFactory {
   public LevelId createLevel(LevelData data) {
     return levelRepository
         .save(
-            GradeLevel.builder()
+            Level.builder()
                 .name(new LevelName(data.name()))
-                .trainingType(data.trainingType())
                 .build()
         )
         .getId();

@@ -206,12 +206,9 @@ components:
           $ref: "#/components/schemas/ContactDTO"
         training:
           $ref: "#/components/schemas/AcademicTrainingDTO"
-        leven:
+        level:
           type: "string"
           format: "uuid"
-          maximum: 7
-          minimum: 1
-          maxLength: 1
     ContactDTO:
       type: "object"
       properties:

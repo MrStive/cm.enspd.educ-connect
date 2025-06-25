@@ -11,7 +11,7 @@ public class LevelRepositoryImpl implements LevelRepository {
   private final LevelSpringRepository levelSpringRepository;
 
   @Override
-  public Level saveLevel(Level level) {
+  public Level save(Level level) {
     return levelSpringRepository.save(level);
   }
 }

@@ -35,4 +35,8 @@ public class LevelId implements Serializable {
   public int hashCode() {
     return Objects.hash(value);
   }
+
+  public UUID toUUID() {
+    return UUID.fromString(value);
+  }
 }

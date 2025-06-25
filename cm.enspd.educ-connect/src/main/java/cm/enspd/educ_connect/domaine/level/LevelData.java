@@ -5,6 +5,5 @@ import lombok.Builder;
 @Builder
 public record LevelData(
     String id,           
-    String name,         
-    String trainingType  
+    String name
 ) {}

@@ -1,6 +1,6 @@
 package cm.enspd.educ_connect.service;
 
-import cm.enspd.educ_connect.domaine.DepartmentFactory;
+import cm.enspd.educ_connect.domaine.department.DepartmentFactory;
 import cm.enspd.educ_connect.dto.DepartmentDTO;
 import cm.enspd.educ_connect.service.mapper.DepartmentMapper;
 import java.util.UUID;

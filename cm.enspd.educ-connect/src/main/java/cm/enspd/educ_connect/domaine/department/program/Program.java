@@ -1,4 +1,4 @@
-package cm.enspd.educ_connect.domaine.program;
+package cm.enspd.educ_connect.domaine.department.program;
 
 import cm.enspd.educ_connect.domaine.EducConnectEntityBase;
 import cm.enspd.educ_connect.domaine.department.Department;

@@ -11,7 +11,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
   private final DepartmentSpringRepository departmentSpringRepository;
 
   @Override
-  public Department saveDepartment(Department department) {
+  public Department save(Department department) {
     return departmentSpringRepository.save(department);
   }
 }

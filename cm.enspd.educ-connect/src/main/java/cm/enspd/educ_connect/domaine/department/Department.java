@@ -1,7 +1,7 @@
 package cm.enspd.educ_connect.domaine.department;
 
 import cm.enspd.educ_connect.domaine.EducConnectEntityBase;
-import cm.enspd.educ_connect.domaine.program.Program;
+import cm.enspd.educ_connect.domaine.department.program.Program;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

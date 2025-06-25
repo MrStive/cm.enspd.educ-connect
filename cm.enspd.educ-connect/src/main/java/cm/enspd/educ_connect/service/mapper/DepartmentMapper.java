@@ -1,6 +1,6 @@
 package cm.enspd.educ_connect.service.mapper;
 
-import cm.enspd.educ_connect.domaine.DepartmentData;
+import cm.enspd.educ_connect.domaine.department.DepartmentData;
 import cm.enspd.educ_connect.dto.DepartmentDTO;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.InjectionStrategy;
