@@ -83,22 +83,118 @@ paths:
           description: "Invalid input"
         "401":
           description: "Unauthorized"
-  /level:
+  /department:
     post:
       tags:
-        - "Level"
-      summary: "Register a new level"
-      description: "Register a new level with the provided data"
-      operationId: "registerLevel"
+      - "Department"
+      summary: "create new department"
+      description: "create a new department"
+      operationId: "createNewDepartment"
       security:
-        - bearerAuth: []
+      - bearerAuth: []
       requestBody:
         description: "Level object to be created"
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/LevelDTO"
+              $ref: "#/components/schemas/CreateDepartment"
+      responses:
+        "201":
+          description: "Level created successfully"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                format: "uuid"
+                description: "identity of new department"
+        "409":
+          description: "department already exist"
+        "401":
+          description: "Unauthorized"
+    get:
+      tags:
+      - "Department"
+      summary: "get all department"
+      description: "get all department"
+      operationId: "getAllDepartment"
+      security:
+      - bearerAuth: []
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/DepartmentDTO"
+        "401":
+          description: "Unauthorized"
+  /academic-training:
+    post:
+      tags:
+      - "AcademicTraining"
+      summary: "create new academic training"
+      description: "create a new academic training"
+      operationId: "createNewAcademicTraining"
+      security:
+      - bearerAuth: []
+      requestBody:
+        description: "Academic training object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAcademicTraining"
+      responses:
+        "201":
+          description: "Academic training created successfully"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                format: "uuid"
+                description: "identity of new academic training"
+        "409":
+          description: "academic training already exist"
+        "401":
+          description: "Unauthorized"
+    get:
+      tags:
+      - "AcademicTraining"
+      summary: "get all academic training"
+      description: "get all academic training"
+      operationId: "getAllAcademicTraining"
+      security:
+      - bearerAuth: []
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/AcademicTrainingDTO"
+        "401":
+          description: "Unauthorized"
+  /level:
+    post:
+      tags:
+      - "Level"
+      summary: "create a new level"
+      description: "create a new level with the provided data"
+      operationId: "createNewLevel"
+      security:
+      - bearerAuth: []
+      requestBody:
+        description: "Level object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateLevel"
       responses:
         "201":
           description: "Level created successfully"
@@ -111,23 +207,49 @@ paths:
           description: "Invalid input"
         "401":
           description: "Unauthorized"
-
-  /program:
+    get:
+      tags:
+      - "Level"
+      summary: "get all level"
+      description: "get all level"
+      operationId: "fetchLevels"
+      security:
+      - bearerAuth: []
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/LevelDTO"
+        "401":
+          description: "Unauthorized"
+  /department/{departmentId}/program:
     post:
       tags:
-        - "Program"
-      summary: "Register a new program"
-      description: "Register a new program with the provided data"
-      operationId: "registerProgram"
+      - "Department"
+      summary: "add the new program"
+      description: "add the new program to department"
+      operationId: "addNewProgram"
       security:
-        - bearerAuth: []
+      - bearerAuth: []
+      parameters:
+      - name: "departmentId"
+        required: true
+        in: "path"
+        description: "the identity of the department"
+        schema:
+          type: "string"
+          format: "uuid"
       requestBody:
         description: "Program object to be created"
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProgramDTO"
+              $ref: "#/components/schemas/CreateProgram"
       responses:
         "201":
           description: "Program created successfully"
@@ -136,27 +258,63 @@ paths:
               schema:
                 type: "string"
                 format: "uuid"
-        "400":
-          description: "Invalid input"
+        "409":
+          description: "this program already exist in this department"
         "401":
           description: "Unauthorized"
-
-  /department:
+    get:
+      tags:
+      - "Program"
+      summary: "get program of the department"
+      description: "get program of the department"
+      operationId: "fetchAllProgramByDepartment"
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: "departmentId"
+        required: true
+        in: "path"
+        description: "the identity of the department"
+        schema:
+          type: "string"
+          format: "uuid"
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ProgramDTO"
+        "401":
+          description: "Unauthorized"
+        "404":
+          description: "the department not found"
+  /program/{programId}/speciality:
     post:
       tags:
-        - "Department"
-      summary: "Register a new department"
-      description: "Register a new department with the provided data"
-      operationId: "registerDepartment"
+      - "Program"
+      summary: "add a new speciality"
+      description: "add a new speciality with the provided data to program"
+      operationId: "addNewSpeciality"
       security:
-        - bearerAuth: []
+      - bearerAuth: []
+      parameters:
+      - name: "programId"
+        in: "path"
+        required: true
+        description: "the identity of the program"
+        schema:
+          type: "string"
+          format: "uuid"
       requestBody:
-        description: "Department object to be created"
+        description: "speciality object to be created"
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/DepartmentDTO"
+              $ref: "#/components/schemas/CreateSpeciality"
       responses:
         "201":
           description: "Department created successfully"
@@ -165,8 +323,35 @@ paths:
               schema:
                 type: "string"
                 format: "uuid"
-        "400":
-          description: "Invalid input"
+        "409":
+          description: "the speciality already exist"
+        "401":
+          description: "Unauthorized"
+    get:
+      tags:
+      - "Program"
+      summary: "get all speciality of a program"
+      description: "fetch all speciality of a program"
+      operationId: "fetchAllSpecialityByProgram"
+      security:
+      - bearerAuth: []
+      parameters:
+      - name: "programId"
+        in: "path"
+        required: true
+        description: "the identity of the program"
+        schema:
+          type: "string"
+          format: "uuid"
+      responses:
+        "200":
+          description: "successful operation"
+          content:
+            application/json:
+              schema:
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/SpecialityDTO"
         "401":
           description: "Unauthorized"
 components:
@@ -230,53 +415,110 @@ components:
           description: "the phone number"
           example: 653492410
     AcademicTrainingDTO:
-      enum:
-      - "ALTERNANCE"
-      - "INITIAL"
-      - "MASTER_PRO"
-
+      type: "object"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        name:
+          type: "string"
     DepartmentDTO:
-      type: object
+      type: "object"
       required:
-        - name
+      - "name"
       properties:
         id:
-          type: string
-          format: uuid
+          type: "string"
+          format: "uuid"
         name:
-          type: string
+          type: "string"
         description:
-          type: string
-
+          type: "string"
+        program:
+          $ref: "#/components/schemas/ProgramDTO"
+    CreateSpeciality:
+      type: "object"
+      required:
+      - "name"
+      properties:
+        name:
+          type: "string"
+        description:
+          type: "string"
+    SpecialityDTO:
+      type: "object"
+      required:
+      - "name"
+      properties:
+        id:
+          type: "string"
+          format: "uuid"
+        name:
+          type: "string"
+        description:
+          type: "string"
+        program:
+          $ref: "#/components/schemas/ProgramDTO"
     ProgramDTO:
-      type: object
+      type: "object"
       required:
-        - name
+      - "name"
       properties:
         id:
-          type: string
-          format: uuid
+          type: "string"
+          format: "uuid"
         name:
-          type: string
+          type: "string"
         description:
-          type: string
-        departmentId:
-          type: string
-          format: uuid
-        levelId:
-          type: string
-          format: uuid
-
-    LevelDTO:
-      type: object
+          type: "string"
+        department:
+          $ref: "#/components/schemas/DepartmentDTO"
+        level:
+          $ref: "#/components/schemas/LevelDTO"
+    CreateProgram:
+      type: "object"
       required:
-        - name
-        - trainingType
+      - "name"
+      properties:
+        name:
+          type: "string"
+        description:
+          type: "string"
+    LevelDTO:
+      type: "object"
+      required:
+      - "name"
       properties:
         id:
-          type: string
-          format: uuid
+          type: "string"
+          format: "uuid"
         name:
-          type: string
-        trainingType:
-          type: string
+          type: "string"
+        academicTraining:
+          $ref: "#/components/schemas/AcademicTrainingDTO"
+    CreateLevel:
+      type: "object"
+      required:
+      - "name"
+      properties:
+        name:
+          type: "string"
+    CreateDepartment:
+      type: "object"
+      required:
+      - "name"
+      properties:
+        name:
+          type: "string"
+          description: "name of department"
+        description:
+          type: "string"
+    CreateAcademicTraining:
+      type: "object"
+      required:
+      - "name"
+      properties:
+        name:
+          type: "string"
+        description:
+          type: "string"

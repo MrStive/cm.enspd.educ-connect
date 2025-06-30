@@ -1,10 +1,9 @@
 package cm.enspd.educ_connect.domaine.level;
 
 import jakarta.persistence.Embeddable;
-import lombok.Getter;
-
 import java.io.Serializable;
 import java.util.Objects;
+import lombok.Getter;
 
 @Getter
 @Embeddable
@@ -12,8 +11,7 @@ public class LevelName implements Serializable {
 
   private String value;
 
-  public LevelName() {
-  }
+  public LevelName() {}
 
   public LevelName(String value) {
     if (value == null || value.isBlank()) {

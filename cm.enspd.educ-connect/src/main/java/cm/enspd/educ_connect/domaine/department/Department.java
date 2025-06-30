@@ -3,14 +3,13 @@ package cm.enspd.educ_connect.domaine.department;
 import cm.enspd.educ_connect.domaine.EducConnectEntityBase;
 import cm.enspd.educ_connect.domaine.department.program.Program;
 import jakarta.persistence.*;
+import java.util.List;
+import java.util.Objects;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
 import lombok.experimental.SuperBuilder;
-
-import java.util.List;
-import java.util.Objects;
 
 @FieldNameConstants
 @Getter
