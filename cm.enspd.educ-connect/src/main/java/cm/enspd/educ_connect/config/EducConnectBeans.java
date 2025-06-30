@@ -5,9 +5,7 @@ import cm.enspd.educ_connect.domaine.demo.DemoFetcher;
 import cm.enspd.educ_connect.domaine.demo.DemoRepository;
 import cm.enspd.educ_connect.domaine.demo.impl.DemoFactoryImpl;
 import cm.enspd.educ_connect.domaine.demo.impl.DemoFetcherImpl;
-import cm.enspd.educ_connect.domaine.user.UserFactory;
-import cm.enspd.educ_connect.domaine.user.UserFactoryImpl;
-import cm.enspd.educ_connect.domaine.user.UserRepository;
+import cm.enspd.educ_connect.domaine.user.*;
 import cm.enspd.educ_connect.repository.DemoSpringRepository;
 import cm.enspd.educ_connect.repository.UserSpringRepository;
 import cm.enspd.educ_connect.repository.impl.DemoRepositoryImpl;
@@ -33,6 +31,11 @@ public class EducConnectBeans {
   @Bean
   public UserFactory userFactory(UserRepository userRepository) {
     return new UserFactoryImpl(userRepository);
+  }
+
+  @Bean
+  public UserFetcher userFetcher(UserRepository userRepository) {
+    return new UserFetcherImpl(userRepository);
   }
 
   @Bean

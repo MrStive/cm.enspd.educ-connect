@@ -14,6 +14,11 @@ public class UserResource implements UserApi {
   private final UserService userService;
 
   @Override
+  public ResponseEntity<UserDTO> getStudentById(UUID id) {
+    return ResponseEntity.ok(userService.getStudent(id));
+  }
+
+  @Override
   public ResponseEntity<UUID> registerStudent(UserDTO userDTO) {
     return ResponseEntity.status(HttpStatus.CREATED).body(userService.createStudent(userDTO));
   }
