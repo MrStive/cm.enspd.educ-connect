@@ -1,10 +1,9 @@
 package cm.enspd.educ_connect.domaine.department.program;
 
 import jakarta.persistence.Embeddable;
-import lombok.Getter;
-
 import java.io.Serializable;
 import java.util.Objects;
+import lombok.Getter;
 
 @Getter
 @Embeddable
@@ -12,13 +11,9 @@ public class ProgramName implements Serializable {
 
   private String value;
 
-  // Constructeur sans argument requis par JPA
-  public ProgramName() {
-  }
+  public ProgramName() {}
 
-  // Constructeur avec valeur
   public ProgramName(String value) {
-    // Exemple de validation simple : non null et non vide
     if (value == null || value.isBlank()) {
       throw new IllegalArgumentException("Program name cannot be null or empty");
     }

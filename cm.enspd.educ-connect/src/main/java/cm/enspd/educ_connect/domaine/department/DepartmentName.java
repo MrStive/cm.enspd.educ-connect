@@ -1,10 +1,9 @@
 package cm.enspd.educ_connect.domaine.department;
 
 import jakarta.persistence.Embeddable;
-import lombok.Getter;
-
 import java.io.Serializable;
 import java.util.Objects;
+import lombok.Getter;
 
 @Getter
 @Embeddable
@@ -12,8 +11,7 @@ public class DepartmentName implements Serializable {
 
   private String value;
 
-  public DepartmentName() {
-  }
+  public DepartmentName() {}
 
   public DepartmentName(String value) {
     if (value == null || value.isBlank()) {

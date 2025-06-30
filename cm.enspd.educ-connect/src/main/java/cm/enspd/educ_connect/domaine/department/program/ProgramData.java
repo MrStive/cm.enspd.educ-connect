@@ -4,9 +4,4 @@ import lombok.Builder;
 
 @Builder
 public record ProgramData(
-    String id,           
-    String name,         
-    String description,  
-    String departmentId, 
-    String levelId       
-) {}
+    String id, String name, String description, String departmentId, String levelId) {}

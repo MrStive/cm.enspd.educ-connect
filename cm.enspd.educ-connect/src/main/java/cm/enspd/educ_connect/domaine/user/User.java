@@ -1,5 +1,6 @@
 package cm.enspd.educ_connect.domaine.user;
 
+import cm.enspd.educ_connect.domaine.EntityAdapter;
 import cm.enspd.educ_connect.domaine.level.LevelId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
@@ -20,23 +21,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User {
+public class User extends EntityAdapter<UserId> {
   @EmbeddedId
   @Column(name = "c_id")
   @Builder.Default
-  private UserId userId = new UserId();
+  private UserId id = new UserId();
 
   @Column(name = "c_username")
-  private String username;
-
-  @Column(name = "c_first_name")
-  private String firstName;
-
-  @Column(name = "c_last_name")
-  private String lastName;
+  private String fullName;
 
   @Column(name = "c_level")
   private LevelId level;
+
+  @Column(name = "c_email")
+  private String email;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "c_training")
@@ -45,5 +43,5 @@ public class User {
   @Embedded private Contact contact;
 
   @Column(name = "c_birth_date")
-  private LocalDate birthDate;
+  private LocalDate birthdate;
 }

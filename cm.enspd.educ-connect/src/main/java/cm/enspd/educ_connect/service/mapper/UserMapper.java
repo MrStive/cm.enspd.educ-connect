@@ -2,7 +2,9 @@ package cm.enspd.educ_connect.service.mapper;
 
 import cm.enspd.educ_connect.domaine.user.Contact;
 import cm.enspd.educ_connect.domaine.user.PhoneNumber;
+import cm.enspd.educ_connect.domaine.user.Training;
 import cm.enspd.educ_connect.domaine.user.UserData;
+import cm.enspd.educ_connect.dto.AcademicTrainingDTO;
 import cm.enspd.educ_connect.dto.ContactDTO;
 import cm.enspd.educ_connect.dto.PhoneNumberDTO;
 import cm.enspd.educ_connect.dto.UserDTO;
@@ -21,7 +23,9 @@ public interface UserMapper {
   @Mapping(target = "level")
   @Mapping(target = "firstName", source = "firstname")
   @Mapping(target = "lastName", source = "firstname")
-  @Mapping(target = "training")
+  @Mapping(
+      target = "training",
+      expression = "java(mapAcademicTrainingDTOToTraining(userDTO.getTraining()))")
   @Mapping(target = "password")
   @Mapping(target = "username")
   @Mapping(target = "contact")
@@ -43,5 +47,13 @@ public interface UserMapper {
               }
             })
         .orElse(null);
+  }
+
+  default Training mapAcademicTrainingDTOToTraining(AcademicTrainingDTO academicTrainingDTO) {
+    if (academicTrainingDTO == null || academicTrainingDTO.getName() == null) {
+      return null;
+    }
+    // Assuming the name in AcademicTrainingDTO matches the enum names in Training
+    return Training.valueOf(academicTrainingDTO.getName().toUpperCase());
   }
 }
