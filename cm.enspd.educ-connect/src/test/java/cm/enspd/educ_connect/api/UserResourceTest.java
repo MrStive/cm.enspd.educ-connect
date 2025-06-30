@@ -1,11 +1,11 @@
 package cm.enspd.educ_connect.api;
 
-import cm.enspd.educ_connect.domaine.level.LevelId;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import cm.enspd.educ_connect.domaine.level.LevelId;
 import cm.enspd.educ_connect.dto.ContactDTO;
 import cm.enspd.educ_connect.dto.UserDTO;
 import cm.enspd.educ_connect.service.UserService;

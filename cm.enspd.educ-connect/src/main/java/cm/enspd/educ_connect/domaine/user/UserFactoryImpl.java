@@ -13,12 +13,10 @@ public class UserFactoryImpl implements UserFactory {
         .saveStudent(
             User.builder()
                 .contact(userData.contact())
-                .level(new LevelId(userData.level()))
-                .firstName(userData.firstName())
-                .lastName(userData.lastName())
+                .level(new LevelId(userData.level().toString()))
                 .training(userData.training())
-                .birthDate(userData.birthdate())
+                .birthdate(userData.birthdate())
                 .build())
-        .getUserId();
+        .getId();
   }
 }
