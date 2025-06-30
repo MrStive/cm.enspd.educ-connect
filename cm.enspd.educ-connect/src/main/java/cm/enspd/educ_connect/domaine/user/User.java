@@ -1,5 +1,6 @@
 package cm.enspd.educ_connect.domaine.user;
 
+import cm.enspd.educ_connect.domaine.level.LevelId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
@@ -35,7 +36,7 @@ public class User {
   private String lastName;
 
   @Column(name = "c_level")
-  private int level;
+  private LevelId level;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "c_training")

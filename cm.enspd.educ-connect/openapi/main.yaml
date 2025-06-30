@@ -83,6 +83,92 @@ paths:
           description: "Invalid input"
         "401":
           description: "Unauthorized"
+  /level:
+    post:
+      tags:
+        - "Level"
+      summary: "Register a new level"
+      description: "Register a new level with the provided data"
+      operationId: "registerLevel"
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: "Level object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LevelDTO"
+      responses:
+        "201":
+          description: "Level created successfully"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                format: "uuid"
+        "400":
+          description: "Invalid input"
+        "401":
+          description: "Unauthorized"
+
+  /program:
+    post:
+      tags:
+        - "Program"
+      summary: "Register a new program"
+      description: "Register a new program with the provided data"
+      operationId: "registerProgram"
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: "Program object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgramDTO"
+      responses:
+        "201":
+          description: "Program created successfully"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                format: "uuid"
+        "400":
+          description: "Invalid input"
+        "401":
+          description: "Unauthorized"
+
+  /department:
+    post:
+      tags:
+        - "Department"
+      summary: "Register a new department"
+      description: "Register a new department with the provided data"
+      operationId: "registerDepartment"
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: "Department object to be created"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DepartmentDTO"
+      responses:
+        "201":
+          description: "Department created successfully"
+          content:
+            application/json:
+              schema:
+                type: "string"
+                format: "uuid"
+        "400":
+          description: "Invalid input"
+        "401":
+          description: "Unauthorized"
 components:
   schemas:
     DemoDTO:
@@ -121,11 +207,8 @@ components:
         training:
           $ref: "#/components/schemas/AcademicTrainingDTO"
         level:
-          type: "integer"
-          format: "int64"
-          maximum: 7
-          minimum: 1
-          maxLength: 1
+          type: "string"
+          format: "uuid"
     ContactDTO:
       type: "object"
       properties:
@@ -151,3 +234,49 @@ components:
       - "ALTERNANCE"
       - "INITIAL"
       - "MASTER_PRO"
+
+    DepartmentDTO:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+
+    ProgramDTO:
+      type: object
+      required:
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        departmentId:
+          type: string
+          format: uuid
+        levelId:
+          type: string
+          format: uuid
+
+    LevelDTO:
+      type: object
+      required:
+        - name
+        - trainingType
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        trainingType:
+          type: string

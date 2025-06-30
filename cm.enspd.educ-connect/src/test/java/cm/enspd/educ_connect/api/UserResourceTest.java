@@ -1,5 +1,6 @@
 package cm.enspd.educ_connect.api;
 
+import cm.enspd.educ_connect.domaine.level.LevelId;
 import static io.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -31,7 +32,7 @@ class UserResourceTest {
             .birthdate(LocalDate.now().withDayOfYear(5))
             .email("educ.connect@gmail.com")
             .password("1234")
-            .level(4L);
+            .level(new LevelId().toUUID());
     when(userService.createStudent(any(UserDTO.class))).thenReturn(expectedId);
     // When
     // spotless:off
